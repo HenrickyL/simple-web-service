@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Sign-in</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img src="/img/logo.png" alt="logo">
+        </a>
+        <div class="userArea">
+
+        </div>
+    </header>
+    <main>
+        <form action="/register" method="POST" >
+            <img src="/img/logo.png" alt="">
+            <!-- <div id='inputs'> -->
+                <input type="text" id='usename' name="username" required placeholder="Username">
+                <input type="email"id='email' name="email" required placeholder="Email">
+                <input type="password" id='password' name="password" required placeholder="Password">
+                <input type="password" id='confirm' name='confirm' required placeholder="Confirm Password" >
+            <!-- </div> -->
+            <input type="submit" id='submit' value='Register'>
+        </form>
+        <div class="selection">
+
+            <div id='signin' class="option left active ">
+                Sign-In
+            </div>
+            <div  id="login" class="option right ">
+                Log-In
+            </div>
+        </div>
+    </main>
+    {% if added==true %}
+        <div class="bg"></div>
+        <div class="popup-bg ">
+            <div class="popup">
+                <img src="/img/check.svg" alt="conclud">
+                <span>Cadastro Realizado com sucesso!</span>
+                <button id="popup-bt">Ok</button>
+            </div>
+        </div>
+    {%elif added==false%}
+        <div class="bg"></div>
+        <div class="popup-bg ">
+            <div class="popup ">
+                <img src="/img/error.jpg" alt="conclud">
+                <span>UserName ou Email já cadastrado!</span>
+                <button id="popup-bt">Ok</button>
+            </div>
+        </div>
+    {% else%}
+        <div class="bg hide"></div>
+        <div class="popup-bg hide">
+            <div class="popup ">
+                <img src="/img/error.jpg" alt="conclud">
+                <span>UserName ou Email já cadastrado!</span>
+                <button id="popup-bt">Ok</button>
+            </div>
+        </div>
+        
+    {% endif %}
+    
+        
+    
+    
+    
+
+    
+      
+    
+    
+</body>
+<script>
+    const popup = document.querySelector('.popup-bg')
+    const bg = document.querySelector('.bg')
+    const bt = document.querySelector('#popup-bt')
+    bt.addEventListener('click',()=>{
+        
+        bg.classList.toggle('hide')
+        popup.classList.toggle('hide')
+    })
+
+</script>
+<script src="/scripts/signin.js"></script>
+</html>

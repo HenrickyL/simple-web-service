@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Users</title>
+</head>
+<body>
+    <header>
+        <a href="/">
+            <img id='logo' src="/img/logo.png" alt="logo">
+        </a>
+        <div class="userArea">
+            {% if user %}
+                <span>{{user.username}}</span>
+            {%else%}
+                <span>UserName</span>
+
+            {% endif %}
+            <img id='userImg' src="/img/user.png" alt="user img">
+        </div>
+    </header>
+    <h1>All Users</h1>
+    <div class='allUsers'>
+        {% for u in users %}
+            <div class="user">
+                <h3>{{u.username}}</h3>
+                <span>
+                    {{u.createAt.getDate()}}/{{u.createAt.getMonth()+1}}/{{u.createAt.getFullYear()}}
+                    </span>
+            </div>
+        {% endfor %}
+    </div>
+    
+    
+    
+</body>
+{# <script>
+    const popup = document.querySelector('.popup-bg')
+    const bg = document.querySelector('.bg')
+    const bt = document.querySelector('#popup-bt')
+    bt.addEventListener('click',()=>{
+        
+        bg.classList.toggle('hide')
+        popup.classList.toggle('hide')
+    })
+
+</script> #}
+<script src="/scripts/signin.js"></script>
+</html>
